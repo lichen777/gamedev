@@ -1,14 +1,19 @@
 import React from "react";
 import NameCardList from "./NameCardList";
-import { Container, Header, Divider, Menu, Input } from "semantic-ui-react";
+import { Container, Header, Divider, Menu, Input, Icon } from "semantic-ui-react";
 
 export default class Marketplace extends React.Component {
-    state = { activeItem: 'all' }
+    state = {
+      activeItem: 'all',
+      activeView: 'grid'
+    }
 
     handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
+    handleViewClick = (e, { name }) => this.setState({ activeView: name })
+
     render() {
-        const { activeItem } = this.state;
+        const { activeItem, activeView } = this.state;
 
         return (
             <div>
@@ -23,7 +28,13 @@ export default class Marketplace extends React.Component {
                         <Menu.Item name='female' active={activeItem === 'female'} onClick={this.handleItemClick} />
                         <Menu.Menu position='right'>
                             <Menu.Item>
-                                <Input icon='search' placeholder='Find a Name' />
+                                <Input icon='search' size='small' iconPosition='left' placeholder='Find a Name' />
+                            </Menu.Item>
+                            <Menu.Item name='grid' onClick={this.handleViewClick}>
+                                <Icon name='grid layout' color={activeView === 'grid' ? 'purple' : 'grey'} />
+                            </Menu.Item>
+                            <Menu.Item name='list' onClick={this.handleViewClick}>
+                                <Icon name='list layout' color={activeView === 'list' ? 'purple' : 'grey'} />
                             </Menu.Item>
                         </Menu.Menu>
                     </Menu>
