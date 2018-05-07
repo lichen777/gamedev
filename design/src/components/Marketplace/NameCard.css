@@ -1,0 +1,28 @@
+.cardButton {
+    height: 34px;
+    width: 80px;
+    border-radius: 3px !important;
+    background-color: #4F0C77 !important;
+}
+
+.likes {
+    height: 16px;
+    width: 48px;
+    opacity: 0.87;
+    color: #000000;
+    font-size: 14px;
+    letter-spacing: 0.01px;
+    line-height: 16px;
+    font-weight: normal;
+}
+
+.price {
+    padding-top: 20px !important;
+    height: 22px;
+    width: 96px;
+    color: #000000;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.02px;
+    line-height: 23px;
+}
