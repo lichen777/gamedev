@@ -1,7 +1,7 @@
 import React from "react";
 import NameCardList from "./NameCardList";
 import MarketplaceMenu from "./MarketplaceMenu";
-import { Container, Header, Divider, Pagination } from "semantic-ui-react";
+import { Container, Header, Divider, Pagination, Rail, Menu, Grid } from "semantic-ui-react";
 
 import _ from "lodash";
 import faker from "faker";
@@ -48,25 +48,37 @@ export default class Marketplace extends React.Component {
     });
 
     return (
-      <div>
+      <div className="marketplace">
         <Container textAlign="center">
           <Header as="h1" content="Marketplace" />
         </Container>
         <Divider hidden />
         <Container>
-          <MarketplaceMenu
-            {...this.state}
-            handleItemClick={this.handleItemClick}
-            handleViewClick={this.handleViewClick}
-            handleSortClick={this.handleSortClick}
-          />
-          <NameCardList source={display} />
-          <Divider hidden />
-          <Pagination
-            activePage={activePage}
-            totalPages={totalPages}
-            onPageChange={this.handlePaginationChange}
-          />
+          <Grid centered columns={3}>
+            <Grid.Column width={1} >
+              <Menu compact vertical>
+                <Menu.Item name='A' />
+              </Menu>
+            </Grid.Column>
+            <Grid.Column textAlign="center" width={14} >
+              <MarketplaceMenu
+                {...this.state}
+                handleItemClick={this.handleItemClick}
+                handleViewClick={this.handleViewClick}
+                handleSortClick={this.handleSortClick}
+              />
+              <Container>
+                <NameCardList source={display} />
+              </Container>
+              <Divider hidden />
+              <Pagination
+                activePage={activePage}
+                totalPages={totalPages}
+                onPageChange={this.handlePaginationChange}
+              />
+            </Grid.Column>
+            <Grid.Column width={1} />
+          </Grid>
         </Container>
       </div>
     );
