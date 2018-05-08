@@ -3,17 +3,22 @@ import { Menu, Input, Icon, Dropdown } from "semantic-ui-react";
 
 const options = [
   "Price (High - Low)",
-  "Price (Low - High)",
-  "Likes (High - Low)",
-  "Likes (Low - High)"
+  "Price (Low - High)"
+];
+
+const status = [
+  "all",
+  "buyable"
 ];
 
 export default function MarketplaceMenu({
   activeItem,
   activeView,
+  statusView,
   sortedView,
   handleItemClick,
   handleSortClick,
+  handleStatusClick,
   handleViewClick
 }) {
   return (
@@ -42,36 +47,34 @@ export default function MarketplaceMenu({
             placeholder="Find a Name"
           />
         </Menu.Item>
+        <Dropdown item text="Status">
+          <Dropdown.Menu>
+            {status.map( (item, index) => {
+              return (
+                <Dropdown.Item
+                  onClick={handleStatusClick}
+                  selected={statusView === index}
+                  name={index}
+                >
+                  {item}
+                </Dropdown.Item>
+              );
+            })}
+          </Dropdown.Menu>
+        </Dropdown>
         <Dropdown item text={options[sortedView]}>
           <Dropdown.Menu>
-            <Dropdown.Item
-              onClick={handleSortClick}
-              selected={sortedView === 0}
-              name={0}
-            >
-              {options[0]}
-            </Dropdown.Item>
-            <Dropdown.Item
-              onClick={handleSortClick}
-              selected={sortedView === 1}
-              name={1}
-            >
-              {options[1]}
-            </Dropdown.Item>
-            <Dropdown.Item
-              onClick={handleSortClick}
-              selected={sortedView === 2}
-              name={2}
-            >
-              {options[2]}
-            </Dropdown.Item>
-            <Dropdown.Item
-              onClick={handleSortClick}
-              selected={sortedView === 3}
-              name={3}
-            >
-              {options[3]}
-            </Dropdown.Item>
+            {options.map( (item, index) => {
+              return (
+                <Dropdown.Item
+                  onClick={handleSortClick}
+                  selected={sortedView === index}
+                  name={index}
+                >
+                  {item}
+                </Dropdown.Item>
+              );
+            })}
           </Dropdown.Menu>
         </Dropdown>
         <Menu.Item name="grid" onClick={handleViewClick}>

@@ -2,9 +2,11 @@ import React from "react";
 import NameCard from "./NameCard";
 import { Card } from "semantic-ui-react";
 
+const ITEMSPERROW = 4;
+
 export default function NameCardList({ source }) {
   return (
-    <Card.Group itemsPerRow={4}>
+    <Card.Group itemsPerRow={ITEMSPERROW}>
       <NameCard
         name="Name"
         owner="Me"
@@ -14,7 +16,7 @@ export default function NameCardList({ source }) {
         src="https://dummyimage.com/mediumrectangle/222222/eeeeee"
         price={1.121}
       />
-      {source.map(item => <NameCard {...item} />)}
+      {source.length !== 0 ? source.map(item => <NameCard {...item} />) : "" }
     </Card.Group>
   );
 }
