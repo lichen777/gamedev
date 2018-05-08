@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import NameCard from "./NameCard";
 import { Card } from "semantic-ui-react";
 
@@ -20,3 +21,10 @@ export default function NameCardList({ source }) {
     </Card.Group>
   );
 }
+
+NameCardList.propTypes = {
+  source: PropTypes.array
+};
+NameCardList.defaultProps = {
+  source: []
+};

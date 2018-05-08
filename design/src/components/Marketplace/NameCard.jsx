@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { Card, Image, Grid, Icon, Button } from "semantic-ui-react";
 import "./NameCard.css";
 
@@ -51,3 +52,16 @@ export default function NameCard({
     </Card>
   );
 }
+
+NameCard.propTypes = {
+  id: PropTypes.string,
+  name: PropTypes.string,
+  src: PropTypes.string,
+  likes: PropTypes.number,
+  owner: PropTypes.string,
+  price: PropTypes.number,
+  description: PropTypes.string
+};
+NameCard.defaultProps = {
+  description: "..."
+};

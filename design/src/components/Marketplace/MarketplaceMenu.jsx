@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { Menu, Input, Icon, Dropdown } from "semantic-ui-react";
 
 const options = ["Price (High - Low)", "Price (Low - High)"];
@@ -87,3 +88,19 @@ export default function MarketplaceMenu({
     </Menu>
   );
 }
+
+MarketplaceMenu.propTypes = {
+  activeItem: PropTypes.string,
+  activeView: PropTypes.string,
+  statusView: PropTypes.number,
+  sortedView: PropTypes.number,
+  handleItemClick: PropTypes.func,
+  handleSortClick: PropTypes.func,
+  handleStatusClick: PropTypes.func,
+  handleViewClick: PropTypes.func
+};
+MarketplaceMenu.defaultProps = {
+  activeItem: "all",
+  activeView: "grid",
+  sortedView: 0
+};

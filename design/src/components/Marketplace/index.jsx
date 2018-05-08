@@ -8,7 +8,7 @@ import faker from "faker";
 
 const ITEMPERPAGE = 40;
 
-const source = _.times(100, i => ({
+const source = _.times(1000, i => ({
   key: i,
   id: faker.random.uuid(),
   name: faker.name.firstName(),
