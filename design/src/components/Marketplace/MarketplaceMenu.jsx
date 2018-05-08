@@ -1,15 +1,9 @@
 import React from "react";
 import { Menu, Input, Icon, Dropdown } from "semantic-ui-react";
 
-const options = [
-  "Price (High - Low)",
-  "Price (Low - High)"
-];
+const options = ["Price (High - Low)", "Price (Low - High)"];
 
-const status = [
-  "all",
-  "buyable"
-];
+const status = ["all", "buyable"];
 
 export default function MarketplaceMenu({
   activeItem,
@@ -49,7 +43,7 @@ export default function MarketplaceMenu({
         </Menu.Item>
         <Dropdown item text="Status">
           <Dropdown.Menu>
-            {status.map( (item, index) => {
+            {status.map((item, index) => {
               return (
                 <Dropdown.Item
                   onClick={handleStatusClick}
@@ -64,7 +58,7 @@ export default function MarketplaceMenu({
         </Dropdown>
         <Dropdown item text={options[sortedView]}>
           <Dropdown.Menu>
-            {options.map( (item, index) => {
+            {options.map((item, index) => {
               return (
                 <Dropdown.Item
                   onClick={handleSortClick}
