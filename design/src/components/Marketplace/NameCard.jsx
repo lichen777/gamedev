@@ -2,9 +2,9 @@ import React from 'react';
 import { Card, Image, Grid, Icon, Button } from "semantic-ui-react";
 import './NameCard.css'
 
-export default function NameCard({ name, src, likes, owner, price }) {
+export default function NameCard({ id, name, src, likes, owner, price, description }) {
     return (
-      <Card>
+      <Card key={id}>
         <Image src={src} />
         <Card.Content textAlign="left">
           <Card.Header>
@@ -25,8 +25,7 @@ export default function NameCard({ name, src, likes, owner, price }) {
             </span>
           </Card.Meta>
           <Card.Description textAlign="left">
-            Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
-            consectetur, adipisci velit...
+            {description}
           </Card.Description>
         </Card.Content>
         <Card.Content textAlign="left" extra>
