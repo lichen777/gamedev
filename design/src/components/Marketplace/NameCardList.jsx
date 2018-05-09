@@ -8,15 +8,7 @@ const ITEMSPERROW = 4;
 export default function NameCardList({ source }) {
   return (
     <Card.Group itemsPerRow={ITEMSPERROW}>
-      <NameCard
-        name="Name"
-        owner="Me"
-        description="..."
-        likes={17}
-        id={1}
-        src="https://dummyimage.com/mediumrectangle/222222/eeeeee"
-        price={1.121}
-      />
+      
       {source.length !== 0 ? source.map(item => <NameCard {...item} />) : "" }
     </Card.Group>
   );
@@ -28,3 +20,15 @@ NameCardList.propTypes = {
 NameCardList.defaultProps = {
   source: []
 };
+
+/* object model example
+<NameCard
+  name="Name"
+  owner="Me"
+  description="..."
+  likes={17}
+  id={1}
+  src="https://dummyimage.com/mediumrectangle/222222/eeeeee"
+  price={1.121}
+/>
+*/

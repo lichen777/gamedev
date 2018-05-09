@@ -1,7 +1,7 @@
 import React from "react";
 import NameCardList from "./NameCardList";
 import MarketplaceMenu from "./MarketplaceMenu";
-import { Container, Header, Divider, Pagination, Rail, Menu, Grid } from "semantic-ui-react";
+import { Container, Header, Divider, Pagination } from "semantic-ui-react";
 
 import _ from "lodash";
 import faker from "faker";
@@ -14,7 +14,7 @@ const source = _.times(1000, i => ({
   name: faker.name.firstName(),
   owner: faker.name.lastName(),
   description: faker.company.catchPhrase(),
-  src: faker.internet.avatar(),
+  src: "https://dummyimage.com/mediumrectangle/222222/eeeeee",
   likes: faker.random.number(),
   price: faker.finance.amount(0, 100, 2)
 }));
@@ -54,31 +54,21 @@ export default class Marketplace extends React.Component {
         </Container>
         <Divider hidden />
         <Container>
-          <Grid centered columns={3}>
-            <Grid.Column width={1} >
-              <Menu compact vertical>
-                <Menu.Item name='A' />
-              </Menu>
-            </Grid.Column>
-            <Grid.Column textAlign="center" width={14} >
-              <MarketplaceMenu
-                {...this.state}
-                handleItemClick={this.handleItemClick}
-                handleViewClick={this.handleViewClick}
-                handleSortClick={this.handleSortClick}
-              />
-              <Container>
-                <NameCardList source={display} />
-              </Container>
-              <Divider hidden />
-              <Pagination
-                activePage={activePage}
-                totalPages={totalPages}
-                onPageChange={this.handlePaginationChange}
-              />
-            </Grid.Column>
-            <Grid.Column width={1} />
-          </Grid>
+           <MarketplaceMenu
+            {...this.state}
+            handleItemClick={this.handleItemClick}
+            handleViewClick={this.handleViewClick}
+            handleSortClick={this.handleSortClick}
+          />
+          <Container>
+            <NameCardList source={display} />
+          </Container>
+          <Divider hidden />
+          <Pagination
+            activePage={activePage}
+            totalPages={totalPages}
+            onPageChange={this.handlePaginationChange}
+          />
         </Container>
       </div>
     );
